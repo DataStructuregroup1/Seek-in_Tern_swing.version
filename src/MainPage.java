@@ -41,6 +41,7 @@ public class MainPage extends JFrame{
 	}
 	
 	public void createBookMark() {
+		//test
 		bookMark = new Widget();
 		add(bookMark);
 		bookMark.addBookMark("qqq","aaaaa");
