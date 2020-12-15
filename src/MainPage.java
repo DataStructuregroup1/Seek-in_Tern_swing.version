@@ -41,20 +41,6 @@ public class MainPage extends JFrame{
 	}
 	
 	public void createBookMark() {
-//		test = new JTextArea();
-//		test.setVisible(true);
-//		test.setOpaque(true);
-//		test.setLineWrap(true);
-//		test.setBackground(new Color(255,255,255,90));
-//		test.setEditable(false);
-//		test.setBounds( 0, 0, 210, 792);
-//		test.setBorder(new EtchedBorder());
-//		test.setFont(new Font("微軟正黑體 Light", Font.PLAIN, 45));
-//		test.setForeground(Color.black);
-//		test.setBorder(BorderFactory.createMatteBorder(4, 0, 35, 4, Color.white));
-//		JLabel t = new JLabel("test");
-//		test.add(t);
-//		add(test);
 		bookMark = new Widget();
 		add(bookMark);
 		bookMark.addBookMark("qqq","aaaaa");
