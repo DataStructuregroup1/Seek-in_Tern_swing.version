@@ -6,42 +6,43 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
 public class WordCounter {
 	private String urlStr;
     private String content;
     
     public WordCounter(String urlStr){
-    	this.urlStr = urlStr;
+			this.urlStr = urlStr;
     }
-    
-    // get title
+ 
     private String fetchContent() throws IOException{
-		URL url = new URL(this.urlStr);
-		URLConnection conn = url.openConnection();
+    	String retVal = "";
+
+		URL u = new URL(urlStr);
+
+		URLConnection conn = u.openConnection();
+
+		conn.setRequestProperty("User-agent", "Chrome/7.0.517.44");
+
 		InputStream in = conn.getInputStream();
-		BufferedReader br = new BufferedReader(new InputStreamReader(in));
-	
-		String retVal = "";
-	
+
+		InputStreamReader inReader = new InputStreamReader(in,"utf-8");
+
+		BufferedReader bufReader = new BufferedReader(inReader);
 		String line = null;
-		
-		while ((line = br.readLine()) != null){
-		    retVal = retVal + line + "\n";
+
+		while((line=bufReader.readLine())!=null)
+		{
+			retVal += line;
+
 		}
-	
 		return retVal;
+//    	Document document = Jsoup.connect(urlStr).timeout(60000).method(Connection.Method.GET).followRedirects(true).get();
+//		return document.html();
     }
-    
-	public String findTitle() throws IOException {
-		if(content==null){
-		    content = fetchContent();
-		}
-		new String(content.getBytes("utf-8"),"utf-8");
-		if(content.indexOf("<title>")!=-1) {
-			return content.substring(content.indexOf("<title>")+7,content.indexOf("</title>"));
-		}
-		return "no title";
-	}
     
     public int countKeyword(String keyword) throws IOException{
 		if (content == null){

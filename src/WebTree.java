@@ -21,11 +21,13 @@ public class WebTree {
 	public void setKeyWords() {
 		keywords = new ArrayList<Keyword>();
 		Keyword k1 = new Keyword("java",1);
-		Keyword k2 = new Keyword("實習",2);
-		Keyword k3 = new Keyword("資訊",2);
+		Keyword k2 = new Keyword("實習",20);
+		Keyword k3 = new Keyword("資訊",10);
+		Keyword k4 = new Keyword("nccu",1);
 		keywords.add(k1);
-		keywords.add(k2);
-		keywords.add(k3);
+//		keywords.add(k2);
+//		keywords.add(k3);
+//		keywords.add(k4);
 	}
 	
 	public void setPostOrderScore() throws IOException{

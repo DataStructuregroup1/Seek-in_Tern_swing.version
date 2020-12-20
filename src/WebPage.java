@@ -18,12 +18,7 @@ public class WebPage {
 	public WebPage(String url){
 		this.url = url;
 		this.counter = new WordCounter(url);
-		try {
-			this.title = counter.findTitle();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 	
 	public void setScore(ArrayList<Keyword> keywords) throws IOException{
@@ -32,7 +27,8 @@ public class WebPage {
 			score += counter.countKeyword(k.name)* k.weight;	
 		}
 	}
-
+	
+	
 	
 }
 	
