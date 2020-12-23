@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+import javax.net.ssl.SSLHandshakeException;
+
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -18,7 +20,7 @@ public class WordCounter {
 			this.urlStr = urlStr;
     }
  
-    private String fetchContent() throws IOException{
+    private String fetchContent() throws IOException,SSLHandshakeException{
     	String retVal = "";
 
 		URL u = new URL(urlStr);
@@ -26,7 +28,7 @@ public class WordCounter {
 		URLConnection conn = u.openConnection();
 
 		conn.setRequestProperty("User-agent", "Chrome/7.0.517.44");
-
+		
 		InputStream in = conn.getInputStream();
 
 		InputStreamReader inReader = new InputStreamReader(in,"utf-8");
@@ -37,7 +39,6 @@ public class WordCounter {
 		while((line=bufReader.readLine())!=null)
 		{
 			retVal += line;
-
 		}
 		return retVal;
 //    	Document document = Jsoup.connect(urlStr).timeout(60000).method(Connection.Method.GET).followRedirects(true).get();
@@ -46,7 +47,15 @@ public class WordCounter {
     
     public int countKeyword(String keyword) throws IOException{
 		if (content == null){
-		    content = fetchContent();
+			try {
+				content = fetchContent();
+			}catch(Exception e1) {
+				
+			}
+		    
+		}
+		if(content==null) {
+			return 0;
 		}
 		new String(content.getBytes("utf-8"),"utf-8");
 		//To do a case-insensitive search, we turn the whole content and keyword into upper-case:

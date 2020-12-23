@@ -18,6 +18,7 @@ public class WebPage {
 	public WebPage(String url){
 		this.url = url;
 		this.counter = new WordCounter(url);
+		score = 0;
 		
 	}
 	
@@ -26,6 +27,10 @@ public class WebPage {
 		for(Keyword k : keywords){			
 			score += counter.countKeyword(k.name)* k.weight;	
 		}
+	}
+	
+	public String toString() {
+		return "/$/"+title+"!$!"+score;
 	}
 	
 	

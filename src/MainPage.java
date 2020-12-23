@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import javax.net.ssl.SSLHandshakeException;
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 
@@ -263,13 +264,13 @@ public class MainPage extends JFrame{
 				search.setBounds(920, 105, 64, 64);
 				subTitle.setVisible(true);
 				rButton.setVisible(true);
-//				try {
-//					GoogleQuery g = new GoogleQuery(enter.getText());
-//					g.query();
-//				} catch (IOException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				}
+				try {
+					GoogleQuery g = new GoogleQuery(enter.getText());
+					System.out.println(g.query().keySet());
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} 
 			}
 			
 		}
@@ -313,6 +314,7 @@ public class MainPage extends JFrame{
 				enter.setBounds( 300, 350, 600, 65);
 				search.setBounds(920, 355, 64, 64);
 				subTitle.setVisible(false);
+				enter.setText("");
 				
 			}
 		}

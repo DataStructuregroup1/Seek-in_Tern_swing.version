@@ -19,7 +19,7 @@ public class Widget extends JTextArea{
 		setVisible(true);
 		setOpaque(true);
 		setLineWrap(true);
-		setBackground(new Color(36,103,160));
+		setBackground(new Color(26,51,101));
 		setEditable(false);
 		setBounds( -210, 0, 210, 792);
 		setBorder(new EtchedBorder());

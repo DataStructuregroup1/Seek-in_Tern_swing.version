@@ -37,7 +37,10 @@ public class WebTree {
 	private void setPostOrderScore(WebNode startNode, ArrayList<Keyword> keywords) throws IOException{
 		//4. compute the score of children nodes postorder
 		for(WebNode child : startNode.children){
-			setPostOrderScore(child,keywords);				
+			if(child.webPage.score==0) {
+				setPostOrderScore(child,keywords);
+			}
+							
 		}
 		//5.setNode score of startNode
 		startNode.setNodeScore(keywords);
