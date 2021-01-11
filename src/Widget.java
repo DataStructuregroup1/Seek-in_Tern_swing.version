@@ -55,7 +55,7 @@ public class Widget extends JTextArea{
 	}
 	public MainPage getMainPage() {
 		for(Frame frame: JFrame.getFrames()) {
-		if(frame.getTitle().equals("Boogle")) {
+		if(frame.getTitle().equals("Seekin'Tern")) {
 			MainPage mp = (MainPage) frame;
 			return mp;
 		}

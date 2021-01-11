@@ -49,6 +49,7 @@ public class WordCounter {
 		if (content == null){
 			try {
 				content = fetchContent();
+//				System.out.print("Length:"+content.length()+"\n");
 			}catch(Exception e1) {
 				
 			}

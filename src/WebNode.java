@@ -49,5 +49,9 @@ public class WebNode {
 		}
 		return retVal;
 	}
+	public String toString() {
+//		return "Title: "+webPage.title+" Score:"+nodeScore+"\n";
+		return webPage.title;
+	}
 }
 

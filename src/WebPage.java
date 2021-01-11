@@ -18,12 +18,10 @@ public class WebPage {
 	public WebPage(String url){
 		this.url = url;
 		this.counter = new WordCounter(url);
-		score = 0;
-		
+		score = 1;
 	}
 	
 	public void setScore(ArrayList<Keyword> keywords) throws IOException{
-		score = 0;
 		for(Keyword k : keywords){			
 			score += counter.countKeyword(k.name)* k.weight;	
 		}

@@ -14,20 +14,19 @@ public class WebTree {
 //		setKeyWords();
 //	}
 	public WebTree(WebPage rootPage){
-		this.root = new WebNode(rootPage);
 		setKeyWords();
+		this.root = new WebNode(rootPage);
+		
 	}
 	
 	public void setKeyWords() {
 		keywords = new ArrayList<Keyword>();
-		Keyword k1 = new Keyword("java",1);
-		Keyword k2 = new Keyword("實習",20);
-		Keyword k3 = new Keyword("資訊",10);
-		Keyword k4 = new Keyword("nccu",1);
-		keywords.add(k1);
-//		keywords.add(k2);
-//		keywords.add(k3);
-//		keywords.add(k4);
+//		Keyword k1 = new Keyword("系",-1600);
+		Keyword k2 = new Keyword("實習",200);
+		Keyword k3 = new Keyword("職缺",200);
+//		keywords.add(k1);
+		keywords.add(k3);
+		keywords.add(k2);
 	}
 	
 	public void setPostOrderScore() throws IOException{
@@ -37,9 +36,9 @@ public class WebTree {
 	private void setPostOrderScore(WebNode startNode, ArrayList<Keyword> keywords) throws IOException{
 		//4. compute the score of children nodes postorder
 		for(WebNode child : startNode.children){
-			if(child.webPage.score==0) {
+//			if(child.webPage.score==0) {
 				setPostOrderScore(child,keywords);
-			}
+//			}
 							
 		}
 		//5.setNode score of startNode
